@@ -27,6 +27,8 @@ And creates an executable jar located at
 The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
 
 Examples
+Note: `jq` is optional below. it is only used to prettyprint the JSON responses
+
 ``` shell
 ➜  ~ curl -s -X POST -H "Content-Type: application/json" -d '{"toolCode":"JAKR", "rentalDays": 5, "discountPercent": 101, "checkoutDate": "9/3/15"}' http://localhost:8080/rentals | jq
 
