@@ -9,7 +9,7 @@ A Tool Rental Application REST API Microservice in Java with Postgres database
 - Java 17
 
 ## Build and Test
-The tests rely on a database so start the db container using this command:
+The tests and the application rely on a database so start the db container using this command:
 ```shell
 docker compose up
 ```
