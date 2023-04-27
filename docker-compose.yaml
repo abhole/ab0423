@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  db:
+    image: "library/postgres:15.2-alpine3.17"
+    container_name: "db"
+#    volumes:
+#      - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=rentals
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=pgpass
+    networks:
+      - rentalnet
+
+#  api:
+#    build:
+#      context: .
+#      dockerfile: src/main/docker/Dockerfile.jvm
+#    container_name: "api"
+#    environment:
+#      - POSTGRES_DB=rentals
+#      - POSTGRES_USER=pguser
+#      - POSTGRES_PASSWORD=pgpass
+#      - POSTGRES_HOST=db
+#      - QUARKUS_PROFILE=dev
+#    expose:
+#      - 8080
+#      - 5005
+#    ports:
+#      - "8080:8080"
+#      - "5005:5005"
+#    depends_on:
+#      - "db"
+#    networks:
+#      - rentalnet
+
+networks:
+  rentalnet:
+    driver: bridge
